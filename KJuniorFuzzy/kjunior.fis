@@ -1,0 +1,55 @@
+[System]
+Name='kjunior'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=2
+NumRules=6
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='sensorE'
+Range=[0 999]
+NumMFs=2
+MF1='perto':'trapmf',[0 0 199 799]
+MF2='longe':'trapmf',[199 799 999 999]
+
+[Input2]
+Name='sensorC'
+Range=[0 999]
+NumMFs=2
+MF1='perto':'trapmf',[0 0 199 799]
+MF2='longe':'trapmf',[199 799 999 999]
+
+[Input3]
+Name='sensorD'
+Range=[0 999]
+NumMFs=2
+MF1='perto':'trapmf',[0 0 199 799]
+MF2='longe':'trapmf',[199 799 999 999]
+
+[Output1]
+Name='motorE'
+Range=[-10 10]
+NumMFs=2
+MF1='retroceder':'trapmf',[-10 -10 -4 2]
+MF2='acelerar':'trapmf',[-2 4 10 10]
+
+[Output2]
+Name='motorD'
+Range=[-10 10]
+NumMFs=2
+MF1='retroceder':'trapmf',[-10 -10 -4 2]
+MF2='acelerar':'trapmf',[-2 4 10 10]
+
+[Rules]
+1 2 2, 2 1 (1) : 1
+1 1 2, 2 1 (1) : 1
+2 1 2, 2 1 (1) : 1
+2 1 1, 1 2 (1) : 1
+2 2 1, 1 2 (1) : 1
+2 2 2, 2 2 (1) : 1
